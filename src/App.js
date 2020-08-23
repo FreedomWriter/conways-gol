@@ -9,7 +9,7 @@ export default class App extends React.Component {
     super();
     this.speed = 1000;
     this.rows = 30;
-    this.cols = 50;
+    this.cols = 70;
 
     this.state = {
       generation: 0,
@@ -17,11 +17,13 @@ export default class App extends React.Component {
       fullGrid: Array(this.rows)
         .fill()
         .map(() => Array(this.cols).fill(false)),
+      userRows: 30,
+      userCols: 70,
     };
   }
 
-  selectBox = (e, row, col) => {
-    e.preventDefault();
+  handleSelectBox = (row, col) => {
+    // e.preventDefault();
     let gridCopy = JSON.parse(JSON.stringify(this.state.fullGrid));
     gridCopy[row][col] = !gridCopy[row][col];
     this.setState({
@@ -64,6 +66,10 @@ export default class App extends React.Component {
 
   handlePause = () => {
     clearInterval(this.intervalId);
+    // this.setState({
+    //   ...this.state,
+    //   isPlaying: false,
+    // });
   };
 
   handleSlow = () => {
@@ -88,9 +94,23 @@ export default class App extends React.Component {
     });
   };
 
-  handleGridSize = (size) => {
+  handleGridSizeSubmit = (e) => {
     // TODO - add ability to chose a grid size
+    e.preventDefault();
+    this.rows = this.state.userRows;
+    this.cols = this.state.userCols;
     this.handleClear();
+  };
+
+  handleGridSizeChange = (e) => {
+    console.log(e.target.name);
+    let change = {};
+    change[e.target.name] = e.target.value;
+    this.setState({
+      // ...this.state,
+      [e.target.name]: Number(e.target.value),
+    });
+    console.log(this.state);
   };
 
   play = () => {
@@ -138,14 +158,17 @@ export default class App extends React.Component {
           handleFast={this.handleFast}
           handleClear={this.handleClear}
           handleRandomGrid={this.handleRandom}
-          handleGridSize={this.handleGridSize}
+          handleGridSizeSubmit={this.handleGridSizeSubmit}
+          handleGridSizeChange={this.handleGridSizeChange}
           isPlaying={this.state.isPlaying}
+          userRows={this.state.userRows}
+          userCols={this.state.userCols}
         />
         <Grid
           fullGrid={this.state.fullGrid}
           rows={this.rows}
           cols={this.cols}
-          selectBox={this.selectBox}
+          handleSelectBox={this.handleSelectBox}
           isPlaying={this.state.isPlaying}
         />
       </div>

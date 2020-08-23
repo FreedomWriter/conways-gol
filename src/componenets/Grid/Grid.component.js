@@ -1,7 +1,13 @@
 import React from "react";
 import Box from "../Box/Box.component";
 
-export default function Grid({ rows, cols, fullGrid, selectBox }) {
+export default function Grid({
+  rows,
+  cols,
+  fullGrid,
+  handleSelectBox,
+  isPlaying,
+}) {
   const width = cols * 16 + 1;
   let rowsArr = [];
   let boxClass = "";
@@ -19,7 +25,8 @@ export default function Grid({ rows, cols, fullGrid, selectBox }) {
           key={boxId}
           row={i}
           col={j}
-          selectBox={selectBox}
+          handleSelectBox={handleSelectBox}
+          isPlaying={isPlaying}
         />
       );
     }
