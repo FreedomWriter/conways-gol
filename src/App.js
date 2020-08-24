@@ -3,6 +3,7 @@ import "./index.css";
 
 import Grid from "./componenets/Grid/Grid.component";
 import Buttons from "./componenets/Buttons/Button.component";
+import Rules from "./componenets/Rules/Rules";
 
 export default class App extends React.Component {
   constructor() {
@@ -148,22 +149,24 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1>The Game of Life</h1>
-        <h2>Generations: {this.state.generation}</h2>
-        <Buttons
-          handlePlay={this.handlePlay}
-          handlePause={this.handlePause}
-          handleSlow={this.handleSlow}
-          handleFast={this.handleFast}
-          handleClear={this.handleClear}
-          handleRandomGrid={this.handleRandom}
-          handleGridSizeSubmit={this.handleGridSizeSubmit}
-          handleGridSizeChange={this.handleGridSizeChange}
-          isPlaying={this.state.isPlaying}
-          userRows={this.state.userRows}
-          userCols={this.state.userCols}
-        />
+      <>
+        <header>
+          <h1>The Game of Life</h1>
+          <h2>Generations: {this.state.generation}</h2>
+          <Buttons
+            handlePlay={this.handlePlay}
+            handlePause={this.handlePause}
+            handleSlow={this.handleSlow}
+            handleFast={this.handleFast}
+            handleClear={this.handleClear}
+            handleRandomGrid={this.handleRandom}
+            handleGridSizeSubmit={this.handleGridSizeSubmit}
+            handleGridSizeChange={this.handleGridSizeChange}
+            isPlaying={this.state.isPlaying}
+            userRows={this.state.userRows}
+            userCols={this.state.userCols}
+          />
+        </header>
         <Grid
           fullGrid={this.state.fullGrid}
           rows={this.rows}
@@ -171,7 +174,8 @@ export default class App extends React.Component {
           handleSelectBox={this.handleSelectBox}
           isPlaying={this.state.isPlaying}
         />
-      </div>
+        <Rules />
+      </>
     );
   }
 }
