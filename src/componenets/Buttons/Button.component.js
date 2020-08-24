@@ -14,26 +14,25 @@ export default function Button({
   userCols,
 }) {
   return (
-    <div className="button-container">
-      <button onClick={handlePlay}>Play</button>
-      <button onClick={handlePause} disabled={!isPlaying}>
-        Pause
-      </button>
-      <button onClick={handleSlow} disabled={!isPlaying}>
-        Slower
-      </button>
-      <button onClick={handleFast} disabled={!isPlaying}>
-        Faster
-      </button>
-      <button onClick={handleClear} disabled={!isPlaying}>
-        Clear
-      </button>
-      <button onClick={handleRandomGrid} disabled={isPlaying}>
-        Random
-      </button>
-      {/* <button onClick={handleGridSize} disabled={isPlaying}>
-        Grid Size
-      </button> */}
+    <div className="container">
+      <div className="button-container">
+        <button onClick={handlePlay}>Play</button>
+        <button onClick={handlePause} disabled={!isPlaying}>
+          Pause
+        </button>
+        <button onClick={handleSlow} disabled={!isPlaying}>
+          Slower
+        </button>
+        <button onClick={handleFast} disabled={!isPlaying}>
+          Faster
+        </button>
+        <button onClick={handleClear} disabled={!isPlaying}>
+          Clear
+        </button>
+        <button onClick={handleRandomGrid} disabled={isPlaying}>
+          Random
+        </button>
+      </div>
       <form onSubmit={(e) => handleGridSizeSubmit(e)}>
         <label htmlFor="userRows">Rows</label>
         <input
