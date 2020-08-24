@@ -8,8 +8,8 @@ export default class App extends React.Component {
   constructor() {
     super();
     this.speed = 1000;
-    this.rows = 30;
-    this.cols = 70;
+    this.rows = 25;
+    this.cols = 25;
 
     this.state = {
       generation: 0,
@@ -17,8 +17,8 @@ export default class App extends React.Component {
       fullGrid: Array(this.rows)
         .fill()
         .map(() => Array(this.cols).fill(false)),
-      userRows: 30,
-      userCols: 70,
+      userRows: 25,
+      userCols: 25,
     };
   }
 

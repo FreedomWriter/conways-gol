@@ -30,7 +30,7 @@ export default function Button({
           Clear
         </button>
         <button onClick={handleRandomGrid} disabled={isPlaying}>
-          Random
+          Seed
         </button>
       </div>
       <form onSubmit={(e) => handleGridSizeSubmit(e)}>

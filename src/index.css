@@ -78,6 +78,12 @@ button {
   height: 30px;
   font-size: 1em;
   font-weight: bold;
+  cursor: pointer;
+}
+
+button:disabled,
+button[disabled] {
+  background: rgba(218, 7, 35, 0.5);
 }
 
 form {
@@ -98,4 +104,19 @@ input {
 label {
   font-size: 1.5em;
   font-weight: bold;
+}
+
+@media (max-width: 500px) {
+  form {
+    flex-flow: column nowrap;
+    font-size: 0.8em;
+  }
+  button {
+    width: 55px;
+    font-size: 0.7em;
+  }
+  .container {
+    flex-flow: column;
+    width: 95%;
+  }
 }
