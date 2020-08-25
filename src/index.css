@@ -79,7 +79,7 @@ header {
 .rules p {
   border: 1px solid rgba(218, 7, 35, 0.85);
   font-size: 1.2em;
-  padding: 1%;
+  padding: 2%;
   /* background-color: rgba(20, 65, 20, 0.95); */
 
   background-color: #fff;
@@ -110,7 +110,7 @@ button {
 
 button:disabled,
 button[disabled] {
-  background: rgba(218, 7, 35, 0.5);
+  background: rgba(218, 7, 35, 0.25);
 }
 
 form {

@@ -24,7 +24,6 @@ export default class App extends React.Component {
   }
 
   handleSelectBox = (row, col) => {
-    // e.preventDefault();
     let gridCopy = JSON.parse(JSON.stringify(this.state.fullGrid));
     gridCopy[row][col] = !gridCopy[row][col];
     this.setState({
@@ -62,7 +61,7 @@ export default class App extends React.Component {
 
   handlePlay = () => {
     clearInterval(this.intervalId);
-    this.intervalId = setInterval(this.play, this.speed);
+    this.intervalId = setInterval(this.getGen, this.speed);
   };
 
   handlePause = () => {
@@ -114,7 +113,7 @@ export default class App extends React.Component {
     console.log(this.state);
   };
 
-  play = () => {
+  getGen = () => {
     let curGrid = this.state.fullGrid;
     let newGrid = JSON.parse(JSON.stringify(this.state.fullGrid));
 
@@ -165,6 +164,7 @@ export default class App extends React.Component {
             isPlaying={this.state.isPlaying}
             userRows={this.state.userRows}
             userCols={this.state.userCols}
+            getGen={this.getGen}
           />
         </header>
         <Grid
