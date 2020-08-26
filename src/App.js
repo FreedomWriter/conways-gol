@@ -3,13 +3,15 @@ import "./index.css";
 
 import Grid from "./componenets/Grid/Grid.component";
 import Buttons from "./componenets/Buttons/Button.component";
+import Rules from "./componenets/Rules/Rules";
 
 export default class App extends React.Component {
   constructor() {
     super();
-    this.speed = 1000;
-    this.rows = 30;
-    this.cols = 70;
+    this.speed = 1000;\
+    this.rows = 25;
+    this.cols = 25;
+
 
     this.state = {
       generation: 0,
@@ -17,13 +19,15 @@ export default class App extends React.Component {
       fullGrid: Array(this.rows)
         .fill()
         .map(() => Array(this.cols).fill(false)),
-      userRows: 30,
-      userCols: 70,
+
+      userRows: 25,
+      userCols: 25,
+
     };
   }
 
   handleSelectBox = (row, col) => {
-    // e.preventDefault();
+
     let gridCopy = JSON.parse(JSON.stringify(this.state.fullGrid));
     gridCopy[row][col] = !gridCopy[row][col];
     this.setState({
@@ -61,15 +65,13 @@ export default class App extends React.Component {
 
   handlePlay = () => {
     clearInterval(this.intervalId);
-    this.intervalId = setInterval(this.play, this.speed);
+    this.intervalId = setInterval(this.getGen, this.speed);
+
   };
 
   handlePause = () => {
     clearInterval(this.intervalId);
-    // this.setState({
-    //   ...this.state,
-    //   isPlaying: false,
-    // });
+
   };
 
   handleSlow = () => {
@@ -113,7 +115,9 @@ export default class App extends React.Component {
     console.log(this.state);
   };
 
-  play = () => {
+
+  getGen = () => {
+
     let curGrid = this.state.fullGrid;
     let newGrid = JSON.parse(JSON.stringify(this.state.fullGrid));
 
@@ -148,22 +152,26 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1>The Game of Life</h1>
-        <h2>Generations: {this.state.generation}</h2>
-        <Buttons
-          handlePlay={this.handlePlay}
-          handlePause={this.handlePause}
-          handleSlow={this.handleSlow}
-          handleFast={this.handleFast}
-          handleClear={this.handleClear}
-          handleRandomGrid={this.handleRandom}
-          handleGridSizeSubmit={this.handleGridSizeSubmit}
-          handleGridSizeChange={this.handleGridSizeChange}
-          isPlaying={this.state.isPlaying}
-          userRows={this.state.userRows}
-          userCols={this.state.userCols}
-        />
+      <div className="app">
+        <header>
+          <h1>The Game of Life</h1>
+          <h2>Generations: {this.state.generation}</h2>
+          <Buttons
+            handlePlay={this.handlePlay}
+            handlePause={this.handlePause}
+            handleSlow={this.handleSlow}
+            handleFast={this.handleFast}
+            handleClear={this.handleClear}
+            handleRandomGrid={this.handleRandom}
+            handleGridSizeSubmit={this.handleGridSizeSubmit}
+            handleGridSizeChange={this.handleGridSizeChange}
+            isPlaying={this.state.isPlaying}
+            userRows={this.state.userRows}
+            userCols={this.state.userCols}
+            getGen={this.getGen}
+          />
+        </header>
+
         <Grid
           fullGrid={this.state.fullGrid}
           rows={this.rows}
@@ -171,6 +179,9 @@ export default class App extends React.Component {
           handleSelectBox={this.handleSelectBox}
           isPlaying={this.state.isPlaying}
         />
+
+        <Rules />
+
       </div>
     );
   }

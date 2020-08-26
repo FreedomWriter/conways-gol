@@ -12,11 +12,16 @@ export default function Button({
   isPlaying,
   userRows,
   userCols,
+  getGen,
+
 }) {
   return (
     <div className="container">
       <div className="button-container">
         <button onClick={handlePlay}>Play</button>
+
+        <button onClick={getGen}>Step</button>
+
         <button onClick={handlePause} disabled={!isPlaying}>
           Pause
         </button>
@@ -30,7 +35,9 @@ export default function Button({
           Clear
         </button>
         <button onClick={handleRandomGrid} disabled={isPlaying}>
-          Random
+
+          Seed
+
         </button>
       </div>
       <form onSubmit={(e) => handleGridSizeSubmit(e)}>
