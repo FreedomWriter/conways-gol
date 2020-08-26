@@ -66,10 +66,6 @@ export default class App extends React.Component {
 
   handlePause = () => {
     clearInterval(this.intervalId);
-    // this.setState({
-    //   ...this.state,
-    //   isPlaying: false,
-    // });
   };
 
   handleSlow = () => {
@@ -148,7 +144,7 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <>
+      <div className="app">
         <header>
           <h1>The Game of Life</h1>
           <h2>Generations: {this.state.generation}</h2>
@@ -175,7 +171,7 @@ export default class App extends React.Component {
           isPlaying={this.state.isPlaying}
         />
         <Rules />
-      </>
+      </div>
     );
   }
 }
