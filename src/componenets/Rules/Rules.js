@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 export default function Rules() {
   return (
     <div className="rules">
-      <Link to="/">Play</Link>{" "}
+      <Link to="/">Play</Link>
       <a
         className="wiki"
         href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life"

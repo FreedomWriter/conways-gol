@@ -13,22 +13,21 @@ export default class App extends React.Component {
     this.rows = 25;
     this.cols = 25;
 
-
     this.state = {
       generation: 0,
       isPlaying: false,
+      stopStep: false,
+      readyToPlay: false,
       fullGrid: Array(this.rows)
         .fill()
         .map(() => Array(this.cols).fill(false)),
 
       userRows: 25,
       userCols: 25,
-
     };
   }
 
   handleSelectBox = (row, col) => {
-
     let gridCopy = JSON.parse(JSON.stringify(this.state.fullGrid));
     gridCopy[row][col] = !gridCopy[row][col];
     this.setState({
@@ -37,6 +36,10 @@ export default class App extends React.Component {
   };
 
   handleRandom = () => {
+    // this.setState({
+    //   stopStep: true,
+    //   readyToPlay: true,
+    // });
     const gridCopy = JSON.parse(JSON.stringify(this.state.fullGrid));
     for (let i = 0; i < this.rows; i++) {
       for (let j = 0; j < this.cols; j++) {
@@ -47,6 +50,8 @@ export default class App extends React.Component {
     }
     this.setState({
       fullGrid: gridCopy,
+      stopStep: true,
+      readyToPlay: true,
     });
   };
 
@@ -61,18 +66,20 @@ export default class App extends React.Component {
     }
     this.setState({
       fullGrid: gridCopy,
+      stopStep: true,
+      readyToPlay: true,
     });
   };
 
   handlePlay = () => {
+    this.setState({ stopStep: false });
     clearInterval(this.intervalId);
     this.intervalId = setInterval(this.getGen, this.speed);
-
   };
 
   handlePause = () => {
     clearInterval(this.intervalId);
-
+    this.setState({ stopStep: true });
   };
 
   handleSlow = () => {
@@ -116,9 +123,7 @@ export default class App extends React.Component {
     console.log(this.state);
   };
 
-
   getGen = () => {
-
     let curGrid = this.state.fullGrid;
     let newGrid = JSON.parse(JSON.stringify(this.state.fullGrid));
 
@@ -169,7 +174,9 @@ export default class App extends React.Component {
                 handleRandomGrid={this.handleRandom}
                 handleGridSizeSubmit={this.handleGridSizeSubmit}
                 handleGridSizeChange={this.handleGridSizeChange}
+                readyToPlay={this.readyToPlay}
                 isPlaying={this.state.isPlaying}
+                stopStep={this.state.stopStep}
                 userRows={this.state.userRows}
                 userCols={this.state.userCols}
                 getGen={this.getGen}
@@ -188,7 +195,6 @@ export default class App extends React.Component {
           <Rules />
         </Route>
       </>
-
     );
   }
 }
