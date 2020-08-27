@@ -1,4 +1,5 @@
 import React from "react";
+import { Link, Route } from "react-router-dom";
 import "./index.css";
 
 import Grid from "./componenets/Grid/Grid.component";
@@ -144,34 +145,41 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <div className="app">
-        <header>
-          <h1>The Game of Life</h1>
-          <h2>Generations: {this.state.generation}</h2>
-          <Buttons
-            handlePlay={this.handlePlay}
-            handlePause={this.handlePause}
-            handleSlow={this.handleSlow}
-            handleFast={this.handleFast}
-            handleClear={this.handleClear}
-            handleRandomGrid={this.handleRandom}
-            handleGridSizeSubmit={this.handleGridSizeSubmit}
-            handleGridSizeChange={this.handleGridSizeChange}
-            isPlaying={this.state.isPlaying}
-            userRows={this.state.userRows}
-            userCols={this.state.userCols}
-            getGen={this.getGen}
-          />
-        </header>
-        <Grid
-          fullGrid={this.state.fullGrid}
-          rows={this.rows}
-          cols={this.cols}
-          handleSelectBox={this.handleSelectBox}
-          isPlaying={this.state.isPlaying}
-        />
-        <Rules />
-      </div>
+      <>
+        <Route exact path="/">
+          <div className="app">
+            <header>
+              <Link to="/rules">Rules</Link>
+              <h1>The Game of Life</h1>
+              <h2>Generations: {this.state.generation}</h2>
+              <Buttons
+                handlePlay={this.handlePlay}
+                handlePause={this.handlePause}
+                handleSlow={this.handleSlow}
+                handleFast={this.handleFast}
+                handleClear={this.handleClear}
+                handleRandomGrid={this.handleRandom}
+                handleGridSizeSubmit={this.handleGridSizeSubmit}
+                handleGridSizeChange={this.handleGridSizeChange}
+                isPlaying={this.state.isPlaying}
+                userRows={this.state.userRows}
+                userCols={this.state.userCols}
+                getGen={this.getGen}
+              />
+            </header>
+            <Grid
+              fullGrid={this.state.fullGrid}
+              rows={this.rows}
+              cols={this.cols}
+              handleSelectBox={this.handleSelectBox}
+              isPlaying={this.state.isPlaying}
+            />
+          </div>
+        </Route>
+        <Route exact path="/rules">
+          <Rules />
+        </Route>
+      </>
     );
   }
 }
