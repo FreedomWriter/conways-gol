@@ -20,11 +20,9 @@ export default function Button({
     <div className="container">
       <div className="button-container">
         <button onClick={handlePlay}>Play</button>
-
         <button onClick={getGen} disabled={!readyToPlay && !stopStep}>
           Step
         </button>
-
         <button onClick={handlePause} disabled={!isPlaying}>
           Pause
         </button>

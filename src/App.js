@@ -36,10 +36,6 @@ export default class App extends React.Component {
   };
 
   handleRandom = () => {
-    // this.setState({
-    //   stopStep: true,
-    //   readyToPlay: true,
-    // });
     const gridCopy = JSON.parse(JSON.stringify(this.state.fullGrid));
     for (let i = 0; i < this.rows; i++) {
       for (let j = 0; j < this.cols; j++) {
@@ -105,7 +101,6 @@ export default class App extends React.Component {
   };
 
   handleGridSizeSubmit = (e) => {
-    // TODO - add ability to chose a grid size
     e.preventDefault();
     this.rows = this.state.userRows;
     this.cols = this.state.userCols;
