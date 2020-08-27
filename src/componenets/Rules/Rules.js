@@ -2,12 +2,10 @@ import React from "react";
 
 import { Link } from "react-router-dom";
 
-
 export default function Rules() {
   return (
     <div className="rules">
-
-      <Link to="/">Home</Link>{" "}
+      <Link to="/">Play</Link>{" "}
       <a
         className="wiki"
         href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life"
@@ -38,7 +36,6 @@ export default function Rules() {
       <p>
         4. Any dead cell with exactly three live neighbours becomes a live cell,
         as if by reproduction.
-
       </p>
     </div>
   );
