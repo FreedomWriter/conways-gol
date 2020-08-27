@@ -13,18 +13,22 @@ export default class App extends React.Component {
     this.rows = 25;
     this.cols = 25;
 
+
     this.state = {
       generation: 0,
       isPlaying: false,
       fullGrid: Array(this.rows)
         .fill()
         .map(() => Array(this.cols).fill(false)),
+
       userRows: 25,
       userCols: 25,
+
     };
   }
 
   handleSelectBox = (row, col) => {
+
     let gridCopy = JSON.parse(JSON.stringify(this.state.fullGrid));
     gridCopy[row][col] = !gridCopy[row][col];
     this.setState({
@@ -63,10 +67,12 @@ export default class App extends React.Component {
   handlePlay = () => {
     clearInterval(this.intervalId);
     this.intervalId = setInterval(this.getGen, this.speed);
+
   };
 
   handlePause = () => {
     clearInterval(this.intervalId);
+
   };
 
   handleSlow = () => {
@@ -110,7 +116,9 @@ export default class App extends React.Component {
     console.log(this.state);
   };
 
+
   getGen = () => {
+
     let curGrid = this.state.fullGrid;
     let newGrid = JSON.parse(JSON.stringify(this.state.fullGrid));
 
@@ -180,6 +188,7 @@ export default class App extends React.Component {
           <Rules />
         </Route>
       </>
+
     );
   }
 }

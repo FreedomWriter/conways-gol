@@ -1,11 +1,15 @@
 body {
+
   margin: 0 auto;
+
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
   background-color: rgba(20, 20, 20, 0.75);
+
   color: rgba(218, 7, 35, 0.85);
 }
 
@@ -14,13 +18,16 @@ code {
     monospace;
 }
 
+
 header {
   display: flex;
   flex-flow: column nowrap;
+
   background-color: whitesmoke;
   padding: 1%;
   width: 100%;
 }
+
 
 .box {
   display: inline-block;
@@ -29,6 +36,7 @@ header {
   height: 15px;
   margin-left: -1px;
   margin-bottom: -1px;
+
 }
 
 .off {
@@ -47,14 +55,18 @@ header {
   width: 100%;
   display: flex;
   justify-content: space-between;
+
   margin: 1%;
+
 }
 
 .grid {
   line-height: 0;
+
   margin: 5% auto;
   box-shadow: 0px 0px 20px rgba(20, 20, 20, 0.85);
   background: url(./assets/images/hu-chen-africa.jpg) no-repeat bottom center;
+
   background-size: cover;
 }
 
@@ -66,6 +78,7 @@ header {
   margin: 0 auto;
   align-items: center;
 }
+
 
 .rules {
   border: 1px solid rgba(218, 7, 35, 0.85);
@@ -86,6 +99,7 @@ header {
   margin: 0 auto;
 }
 
+
 h1,
 h2 {
   margin: auto;
@@ -93,15 +107,18 @@ h2 {
   width: 50%;
   margin-top: 1%;
   color: rgba(218, 7, 35, 0.95);
+
 }
 
 button {
   color: #fff;
   background: rgba(218, 7, 35, 0.95);
+
   width: 80px;
   height: 30px;
   font-size: 1em;
   font-weight: bold;
+
   cursor: pointer;
   border-radius: 7px;
 }
@@ -109,6 +126,7 @@ button {
 button:disabled,
 button[disabled] {
   background: rgba(218, 7, 35, 0.25);
+
 }
 
 a {
@@ -124,6 +142,7 @@ a {
   margin-top: -2%;
   margin-left: 5%;
   align-self: flex-start;
+
 }
 
 form {
@@ -134,7 +153,9 @@ form {
 }
 
 input {
+
   color: rgba(218, 7, 35, 0.95);
+
   text-align: right;
   font-size: 1em;
   font-weight: bold;
@@ -144,6 +165,7 @@ label {
   font-size: 1.5em;
   font-weight: bold;
 }
+
 
 @media (max-width: 500px) {
   form {
@@ -159,6 +181,7 @@ label {
     width: 95%;
   }
 
+
   .grid {
     margin: 1% auto;
     width: 100vw;
@@ -166,5 +189,6 @@ label {
 
   .wiki {
     margin-top: -7%;
+
   }
 }

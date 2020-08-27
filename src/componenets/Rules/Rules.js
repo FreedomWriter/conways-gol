@@ -1,9 +1,12 @@
 import React from "react";
+
 import { Link } from "react-router-dom";
+
 
 export default function Rules() {
   return (
     <div className="rules">
+
       <Link to="/">Home</Link>{" "}
       <a
         className="wiki"
@@ -35,6 +38,7 @@ export default function Rules() {
       <p>
         4. Any dead cell with exactly three live neighbours becomes a live cell,
         as if by reproduction.
+
       </p>
     </div>
   );
